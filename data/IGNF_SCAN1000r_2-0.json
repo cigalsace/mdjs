@@ -1,0 +1,197 @@
+{
+    "mdFileIdentifier": "IGNF_SCAN1000r_2-0.xml",
+    "mdLanguage": "fre",
+    "mdCharacterSet": "utf8",
+    "mdHierarchyLevel": "series",
+    "mdHierarchyLevelName": "Produit",
+    "mdContacts": [{
+        "organisationName": "Institut National de l'Information Géographique et Forestière (IGN-F)",
+        "deliveryPoints": ["IGN - Service Clients", "73 avenue de Paris"],
+        "city": "SAINT-MANDE cedex",
+        "postalCode": "94165",
+        "country": "FRANCE",
+        "emails": ["sav.bd@ign.fr"],
+        "role": "pointOfContact"
+    }],
+    "mdDateStamp": "2013-12-09",
+    "mdStandardName": "ISO 19115",
+    "mdStandardVersion": "2003 Cor.1:2006",
+    "dataReferenceSystems": [{
+        "codeAnchorLink": "http://librairies.ign.fr/geoportail/resources/IGNF.xml#LAMB93",
+        "codeAnchor": "RGF93 Lambert 93",
+        "codeSpace": "urn:ogc:def:crs:IGNF:1.1"
+    }],
+    "dataTitle": "SCAN 1000®",
+    "dataAlternateTitle": "SCAN 1000®",
+    "dataDates": [{
+        "date": "2009-01-15",
+        "dateType": "publication"
+    }],
+    "dataEdition": "2.0",
+    "dataSeries": [{
+        "name": "DC_SCAN1000_2.pdf",
+        "issueIdentification": "Descriptif de contenu"
+    }],
+    "dataAbstract": "Le produit SCAN 1000® version 2 est une collection d'images numériques en couleurs, obtenues par rastérisation des données vecteur de la carte nationale France (901) à l'échelle 1 :1,000,000ième. Le produit couvre l'ensemble du territoire français métropolitain et la Corse.",
+    "dataPurpose": "Le contenu informationnel est compatible avec des échelles de travail de l'ordre du 1:1,000,000ième. Cependant la lecture des toponymes reste possible jusqu'au 1:2,000,000ième, tandis que l'aliasing (pixellisation) n'est pas perceptible pour des échelles inférieures à 1 :500,000ième",
+    "dataStatus": ["onGoing"],
+    "dataPointOfContacts": [{
+        "organisationName": "Institut National de l'Information Géographique et Forestière (IGN-F)",
+        "deliveryPoints": ["IGN - Service Clients", "73 avenue de Paris"],
+        "city": "SAINT-MANDE cedex",
+        "postalCode": "94165",
+        "country": "FRANCE",
+        "emails": ["sav.bd@ign.fr"],
+        "role": "pointOfContact"
+    }],
+    "dataMaintenanceFrequency": "annually",
+    "dataMaintenanceNotes": ["Le produit SCAN 1000® est réédité à chaque mise à jour de la carte 901. Le rythme de mise à jour est annuel."],
+    "dataKeywords": [{
+        "keywords": ["géographie", "hydrographie", "réseaux de transport", "unités administratives"],
+        "keywordType": "theme"
+    }, {
+        "keywords": ["Ortho-imagerie", "Occupation des terres"],
+        "keywordType": "theme",
+        "thesaurusName": "Thésaurus GEMET",
+        "thesaurusDates": [{
+            "date": "2007-10-17",
+            "dateType": "creation"
+        }]
+    }],
+    "dataUsages": [{
+        "specificUsage": "Echelles d'affichage",
+        "userDeterminedLimitations": "Echelles comprises entre le 1:500,000ième et le 1:2,000,000ième",
+        "userContactInfo": [{
+            "organisationName": "Institut Géographique National (IGN-F)",
+            "emails": ["sav.bd@ign.fr"],
+            "role": "custodian"
+        }]
+    }],
+    "dataUseLimitations": ["Base de données soumise aux conditions générales d'utilisation des fichiers IGN"],
+    "dataLegalConstraints": [{
+        "dataLegalAccessConstraints": ["license"],
+        "dataLegalUseConstraints": ["license"]
+    }],
+    "dataSecurityConstraints": [{
+        "dataSecurityUseLimitations": ["Aucune contrainte"],
+        "dataSecurityClassification": "unclassified"
+    }],
+    "dataSpatialRepresentationType": "grid",
+    "dataLanguages": ["fre"],
+    "dataTopicCategories": ["imageryBaseMapsEarthCover"],
+    "serviceTopicCategories": {},
+    "dataExtents": [{
+        "dataExtentName": "France métropolitaine",
+        "dataGeographicExtentWestBound": "-5.39434386775",
+        "dataGeographicExtentEastBound": "9.99719305556",
+        "dataGeographicExtentSouthBound": "41.35167055297",
+        "dataGeographicExtentNorthBound": "51.09248874542"
+    }],
+    "serviceExtents": {},
+    "dataDistributionFromats": [{
+        "formatName": "TIF",
+        "formatVersion": "6.0",
+        "formatDistributor": [{
+            "organisationName": "Adobe Systems, Incorporated",
+            "linkages": [{
+                "url": "http://www.adobe.com/",
+                "protocol": "HTTP"
+            }],
+            "role": "originator"
+        }, {
+            "organisationName": "Adobe Systems, Incorporated 2222",
+            "linkages": [{
+                "url": "http://www.adobe.com/",
+                "protocol": "HTTP"
+            }],
+            "role": "originator"
+        }]
+    }, {
+        "formatName": "TFW",
+        "formatVersion": "1.0",
+        "formatDistributor": [{
+            "organisationName": "ESRI",
+            "linkages": [{
+                "url": "http://www.esri.com/",
+                "protocol": "HTTP"
+            }],
+            "role": "originator"
+        }]
+    }, {
+        "formatName": "TAB",
+        "formatVersion": "4.5",
+        "formatDistributor": [{
+            "organisationName": "MapInfo",
+            "linkages": [{
+                "url": "http://www.mapinfo.com/",
+                "protocol": "HTTP"
+            }],
+            "role": "originator"
+        }]
+    }, {
+        "formatName": "GXT",
+        "formatVersion": "5.0",
+        "formatDistributor": [{
+            "organisationName": "GéoConcept",
+            "linkages": [{
+                "url": "http://www.geoconcept.com/",
+                "protocol": "HTTP"
+            }],
+            "role": "originator"
+        }]
+    }, {
+        "formatName": "JP2",
+        "formatVersion": "ISO/IEC 15444-1",
+        "formatDistributor": [{
+            "organisationName": "International Organization for Standardization",
+            "linkages": [{
+                "url": "http://www.iso.org/",
+                "protocol": "HTTP"
+            }],
+            "role": "originator"
+        }]
+    }],
+    "dataDistributors": [{
+        "distributorContact": {
+            "organisationName": "Institut National de l'Information Géographique et Forestière (IGN-F)",
+            "deliveryPoints": ["IGN - DC", "73 avenue de Paris"],
+            "city": "SAINT-MANDE cedex",
+            "postalCode": "94165",
+            "country": "FRANCE",
+            "emails": ["sav.bd@ign.fr"],
+            "role": "distributor"
+        },
+        "distributionOrderProcess": [{
+            "fees": "Voir catalogue des prix IGN",
+            "orderingInstructions": "Voir site internet www.ign.fr"
+        }]
+    }],
+    "dataTransferOptions": [{
+        "unitsOfDistribution": "Dalles de 302500 kilomètres carrés (sauf Corse)",
+        "linkages": [{
+            "url": "http://www.ign.fr/",
+            "function": "information"
+        }, {
+            "url": "http://www.geoportail.fr/",
+            "function": "information"
+        }, {
+            "url": "http://professionnels.ign.fr/sites/default/files/DL_raster_SCAN.pdf"
+        }]
+    }],
+    "dataLinkages": [{
+        "url": "http://www.ign.fr/"
+    }, {
+        "url": "http://www.geoportail.fr/"
+    }, {
+        "url": "http://professionnels.ign.fr/sites/default/files/DL_raster_SCAN.pdf"
+    }],
+    "dataDqLevel": "series",
+    "dataLiStatement": "Le produit SCAN 1000® a la même précision géométrique que la carte 901 (France à l'échelle du 1 :1,000,000ième). Les méthodes cartographiques de généralisation peuvent entraîner un décalage des objets représentés par rapport à leurs coordonnées dans la base vecteur de référence.",
+    "dataGeographicExtents": [{
+        "dataExtentName": "France métropolitaine",
+        "dataGeographicExtentWestBound": "-5.39434386775",
+        "dataGeographicExtentEastBound": "9.99719305556",
+        "dataGeographicExtentSouthBound": "41.35167055297",
+        "dataGeographicExtentNorthBound": "51.09248874542"
+    }]
+}

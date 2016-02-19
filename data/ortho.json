@@ -1,0 +1,235 @@
+{
+    "mdFileIdentifier": "FR-236700019-ORTHO-RVB-20112012-CIGAL",
+    "mdLanguage": "fre",
+    "mdCharacterSet": "utf8",
+    "mdHierarchyLevel": "dataset",
+    "mdContacts": [{
+        "individualName": "Guillaume RYCKELYNCK",
+        "organisationName": "CIGAL",
+        "positionName": "Chargé de mission CIGAL",
+        "phoneVoices": ["03 88 15 65 48"],
+        "deliveryPoints": ["1, place Adrien Zeller"],
+        "city": "Strasbourg",
+        "postalCode": "67000",
+        "emails": ["guillaume.ryckelynck@region-alsace.eu"],
+        "role": "pointOfContact"
+    }],
+    "mdDateStamp": "2013-03-26",
+    "mdStandardName": "ISO 19115/19139",
+    "mdStandardVersion": "Cor 1:2006",
+    "dataReferenceSystems": [{
+        "code": "3948",
+        "codeSpace": "EPSG"
+    }, {
+        "code": "NTF Paris – Lambert zone II (EPSG:27572)"
+    }],
+    "dataTitle": "DONNEES - Orthophotographie en vraie couleur (RVB) 2011-2012 CIGAL - Alsace",
+    "dataDates": [{
+        "date": "2012-03-13",
+        "dateType": "publication"
+    }],
+    "dataIdentifiers": [{
+        "code": "FR-236700019-ORTHO-RVB-20112012-CIGAL",
+        "codeSpace": "MD_URI"
+    }, {
+        "code": "ORTHO20112012-CIGAL-RVB"
+    }],
+    "dataAbstract": "Orthophotographie produite à partir de prises de vues réalisées du 27 juin au 30 septembre 2011 sur le nord de l'Alsace et du 25 au 27 mai 2012 sur le sud de l'Alsace.\nLes données d'une résolution de 20 cm/pixel sont organisées en dalles de 2x2 km (format TIFF) ou de 10x10km (format ECW). Elles correspondent aux images en vraie couleur.\nCette campagne de prise de vues a produit en outre des images en couleurs naturelles ainsi qu'un modèle numérique de terrain (cf. les fiches de métadonnées correspondantes).\nDes information complémentaires sont également disponibles dans le guide utilisateur et les rapports méthodologiques.",
+    "dataPointOfContacts": [{
+        "individualName": "RYCKLEYNCK Guillaume",
+        "organisationName": "CIGAL",
+        "positionName": "Chargé de mission CIGAL",
+        "phoneVoices": ["03 88 15 65 48"],
+        "deliveryPoints": ["1 place Adrien Zeller\nBP 91006"],
+        "city": "STRASBOURG Cedex",
+        "postalCode": "67070",
+        "emails": ["guillaume.ryckelynck@region-alsace.eu"],
+        "logoUrl": "https://www.cigalsace.org/metadata/CIGAL/Logo/Logo_CIGAL.jpg",
+        "logoDescription": "Logo",
+        "role": "pointOfContact"
+    }, {
+        "organisationName": "Région Alsace",
+        "phoneVoices": ["03 88 15 68 67"],
+        "deliveryPoints": ["1 place Adrien Zeller\nBP 91006"],
+        "city": "STRASBOURG Cedex",
+        "postalCode": "67070",
+        "emails": ["contact@region-alsace.eu"],
+        "logoUrl": "https://www.cigalsace.org/metadata/CIGAL/Logo/Logo_RegionAlsace.jpg",
+        "logoDescription": "Logo",
+        "role": "owner"
+    }, {
+        "organisationName": "Département du Bas-Rhin",
+        "phoneVoices": ["03 88 76 67 97"],
+        "deliveryPoints": ["Place du Quartier Blanc"],
+        "city": "STRASBOURG Cedex 9",
+        "postalCode": "67964",
+        "emails": ["contact@cg67,fr"],
+        "logoUrl": "https://www.cigalsace.org/metadata/CIGAL/Logo/Logo_CG67.jpg",
+        "logoDescription": "Logo",
+        "role": "owner"
+    }, {
+        "organisationName": "Département du Haut-Rhin",
+        "phoneVoices": ["03 89 30 68 68"],
+        "deliveryPoints": ["100 avenue d'Alsace\nBP 20351"],
+        "city": "COLMAR Cedex",
+        "postalCode": "68006",
+        "emails": ["pevi@cg68.fr"],
+        "logoUrl": "https://www.cigalsace.org/metadata/CIGAL/Logo/Logo_CG68.jpg",
+        "logoDescription": "Logo",
+        "role": "owner"
+    }, {
+        "organisationName": "InterAtlas",
+        "emails": ["info@interatlas.fr"],
+        "logoUrl": "https://www.cigalsace.org/metadata/CIGAL/Logo/Logo_InterAtlas.jpg",
+        "logoDescription": "Logo",
+        "role": "owner"
+    }],
+    "dataMaintenanceFrequency": "unknown",
+    "dataBrowseGraphics": [{
+        "name": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL.jpg",
+        "description": "Illustration de la base de données Ortho 2011/12 CIGAL RVB",
+        "type": ".jpg"
+    }],
+    "dataKeywords": [{
+        "keywords": ["photographie aérienne"],
+        "keywordType": "theme",
+        "thesaurusName": "GEMET - Concepts, version 3.1",
+        "thesaurusDates": [{
+            "date": "2012-07-20",
+            "dateType": "publication"
+        }]
+    }, {
+        "keywords": ["orthophotographie"],
+        "keywordType": "theme"
+    }, {
+        "keywords": ["orthophotoplan"],
+        "keywordType": "theme"
+    }, {
+        "keywords": ["données"],
+        "keywordType": "theme"
+    }, {
+        "keywords": ["Géoportail"],
+        "keywordType": "theme"
+    }, {
+        "keywords": ["Ortho-imagerie"],
+        "thesaurusName": "GEMET - INSPIRE themes, version 1.0",
+        "thesaurusDates": [{
+            "date": "2008-06-01",
+            "dateType": "publication"
+        }]
+    }],
+    "dataUseLimitations": ["Etre membre du réseau CIGAL (signature de l'acte d'adhésion annexé à la Convention cadre - Annexe 2)", "Mentions: \"Source : Ortho 2011-2012 CIGAL RVB (www.cigalsace.org)\""],
+    "dataLegalConstraints": [{
+        "dataLegalUseLimitations": ["Données géographiques ouvertes sous licence Etalab (octobre 2011 - https://www.etalab.gouv.fr/licence-ouverte-open-licence)", "Mentions: \"Source :  Base de données régionale des sols d' Alsace - BDDsols au 1/100 000ème -2015- ARAA - IGCS.  Avec les données issues des guides des sols d'Alsace (Région Alsace)\""],
+        "dataLegalAccessConstraints": ["copyright", "intellectualPropertyRights", "otherRestrictions"],
+        "dataLegalOtherConstraints": ["Pas de restriction d’accès public selon INSPIRE"]
+    }],
+    "dataSecurityConstraints": [{
+        "dataSecurityClassification": "unclassified"
+    }],
+    "dataSpatialRepresentationType": "grid",
+    "dataScaleDistance": "0.2",
+    "dataLanguages": ["fre"],
+    "dataCharacterSet": "utf8",
+    "dataTopicCategories": ["imageryBaseMapsEarthCover"],
+    "serviceTopicCategories": {},
+    "dataExtents": [{
+        "dataExtentName": "Alsace",
+        "dataGeographicExtentWestBound": "8.266549",
+        "dataGeographicExtentEastBound": "6.908261",
+        "dataGeographicExtentSouthBound": "48.0",
+        "dataGeographicExtentNorthBound": "49.3"
+    }, {
+        "dataExtentName": "Période de prises de vue aérienes des photographies ayant permis la constitution du MNE/MNT CIGAL sur le nord de l'Alsace",
+        "dataTemporalExtentBegin": "2011-06-27",
+        "dataTemporalExtentEnd": "2011-09-30"
+    }, {
+        "dataExtentName": "Période de prises de vue aérienes des photographies ayant permis la constitution du MNE/MNT CIGAL sur le sud de l'Alsace",
+        "dataTemporalExtentBegin": "2012-05-25",
+        "dataTemporalExtentEnd": "2012-05-27"
+    }],
+    "serviceExtents": {},
+    "dataDistributionFromats": [{
+        "formatName": "ECW",
+        "formatVersion": "1",
+        "formatSpecification": "desc1"
+    }, {
+        "formatName": "TIFF",
+        "formatVersion": "2",
+        "formatSpecification": "desc2"
+    }],
+    "dataTransferOptions": [{
+        "linkages": [{
+            "url": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/ORTHO20112012-CIGAL_CompteRendu_BasRhin_2011.pdf",
+            "name": "ORTHO20112012-CIGAL_CompteRendu_BasRhin_2011.pdf",
+            "description": "Détails techniques sur les prises de vues et les différentes phases de traitement sur la nord de l'Alsace"
+        }, {
+            "url": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/ORTHO20112012-CIGAL_CompteRendu_HautRhin_2012.pdf",
+            "name": "ORTHO20112012-CIGAL_CompteRendu_HautRhin_2012.pdf",
+            "description": "Détails techniques sur les prises de vues et les différentes phases de traitement sur la sud de l'Alsace"
+        }, {
+            "url": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/ORTHO20112012-CIGAL_GuideUtilisateur_v130416.pdf",
+            "name": "ORTHO20112012-CIGAL_GuideUtilisateur_v130416.pdf",
+            "description": "Document d'accompagnement à l'utilisation du produit"
+        }, {
+            "url": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/ORTHO20112012-CIGAL_Livraison_Bas-Rhin_2011.pdf",
+            "name": "ORTHO20112012-CIGAL_Livraison_Bas-Rhin_2011.pdf",
+            "description": "Eléments de méthodologie de production de l'orthophotoplan et du MNE/MNT CIGAL"
+        }, {
+            "url": "https://www.cigalsace.org/geoserver/wms",
+            "protocol": "OGC:WMS",
+            "name": "cigal:CIGAL_ORTHORVB_2011_12_ALS_ECW_CC48",
+            "description": "Webservice : flux WMS de l'Ortho RVB CIGAL 2011/12"
+        }, {
+            "url": "https://www.cigalsace.org/mapfishapp/contexts/Orthophotographie.wmc",
+            "protocol": "OGC:WMC",
+            "name": "Carte WMC : Ortho CIGAL",
+            "description": "Carte des orthophotos CIGAL de 1997/98, 2002, 2007 et 2011/12"
+        }]
+    }],
+    "dataLinkages": [{
+        "url": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/ORTHO20112012-CIGAL_CompteRendu_BasRhin_2011.pdf",
+        "name": "ORTHO20112012-CIGAL_CompteRendu_BasRhin_2011.pdf",
+        "description": "Détails techniques sur les prises de vues et les différentes phases de traitement sur la nord de l'Alsace"
+    }, {
+        "url": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/ORTHO20112012-CIGAL_CompteRendu_HautRhin_2012.pdf",
+        "name": "ORTHO20112012-CIGAL_CompteRendu_HautRhin_2012.pdf",
+        "description": "Détails techniques sur les prises de vues et les différentes phases de traitement sur la sud de l'Alsace"
+    }, {
+        "url": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/ORTHO20112012-CIGAL_GuideUtilisateur_v130416.pdf",
+        "name": "ORTHO20112012-CIGAL_GuideUtilisateur_v130416.pdf",
+        "description": "Document d'accompagnement à l'utilisation du produit"
+    }, {
+        "url": "https://www.cigalsace.org/metadata/CIGAL/FR-236700019-ORTHO-RVB-20112012-CIGAL/ORTHO20112012-CIGAL_Livraison_Bas-Rhin_2011.pdf",
+        "name": "ORTHO20112012-CIGAL_Livraison_Bas-Rhin_2011.pdf",
+        "description": "Eléments de méthodologie de production de l'orthophotoplan et du MNE/MNT CIGAL"
+    }, {
+        "url": "https://www.cigalsace.org/geoserver/wms",
+        "protocol": "OGC:WMS",
+        "name": "cigal:CIGAL_ORTHORVB_2011_12_ALS_ECW_CC48",
+        "description": "Webservice : flux WMS de l'Ortho RVB CIGAL 2011/12"
+    }, {
+        "url": "https://www.cigalsace.org/mapfishapp/contexts/Orthophotographie.wmc",
+        "protocol": "OGC:WMC",
+        "name": "Carte WMC : Ortho CIGAL",
+        "description": "Carte des orthophotos CIGAL de 1997/98, 2002, 2007 et 2011/12"
+    }],
+    "dataDqLevel": "dataset",
+    "dataLiStatement": "Qualité:\n- Recouvrement longitudinal : 60%\n- Recouvrement transversal : 40% à 70% (CUS, CAC et M2A)\n- Erreur quadratique moyenne (RMS) en X,Y : 40cm\n- Angle solaire : 30-64°\n- Résolution : 20 cm/pixel\n- Précision : 40 cm/pixel en X/Y\n\nGénéalogie et traitement:\n- Acquisition des images brutes par caméra numérique (vraies couleurs et proche infra-rouge)\n- Aérotriangulation par création de points de recouvrement et de points de contrôle mesurés au sol.\n- Calcul du MNE et du MNT.\n- Ajustement radiométrique sur l'ensembles de la zone\n- Orthorectification des clichés.\n- Reprojection : Lambert93 vers RGF93CC48 et Lambert II étendu\n- Mosaïquage des données en dalles de 2x2 km pour le format TIFF et 10x10 km pour le format ECW\n\nL'ensemble des prises de vues et traitement ont été réalisés par la société InterAtlas.",
+    "dataGeographicExtents": [{
+        "dataExtentName": "Alsace",
+        "dataGeographicExtentWestBound": "8.266549",
+        "dataGeographicExtentEastBound": "6.908261",
+        "dataGeographicExtentSouthBound": "48.0",
+        "dataGeographicExtentNorthBound": "49.3"
+    }],
+    "dataTemporalExtents": [{
+        "dataExtentName": "Période de prises de vue aérienes des photographies ayant permis la constitution du MNE/MNT CIGAL sur le nord de l'Alsace",
+        "dataTemporalExtentBegin": "2011-06-27",
+        "dataTemporalExtentEnd": "2011-09-30"
+    }, {
+        "dataExtentName": "Période de prises de vue aérienes des photographies ayant permis la constitution du MNE/MNT CIGAL sur le sud de l'Alsace",
+        "dataTemporalExtentBegin": "2012-05-25",
+        "dataTemporalExtentEnd": "2012-05-27"
+    }]
+}

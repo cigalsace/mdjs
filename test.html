@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow" />
+    <title>mdjs - test</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div id="page"></div>
+    <!-- JS Scripts -->
+    <script src="lib/vkbeautify/vkbeautify.js"></script>
+    <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="src/config.js"></script>
+    <!-- <script src="src/model-json.js"></script> -->
+    <script src="src/model-xml.js"></script>
+    <script src="src/XmlDoc.js"></script>
+    <script src="src/Metadata.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        ////////////////////////////////////////////////////////////////////////////
+        // Test mdjs.XmlDoc Classe
+        ////////////////////////////////////////////////////////////////////////////
+        var xmlDoc = new mdjs.XmlDoc(false, mdjs.root, mdjs.xmlns);
+        var test1 = xmlDoc.addNode(xmlDoc.root, 'gmd:test1');
+        xmlDoc.addNode(test1, 'gmd:test1-1', 'test01');
+        xmlDoc.addNode(test1, 'gmd:test1-1', 'test02');
+        xmlDoc.addNode(test1, 'gmd:test1-1', 'test03');
+
+        xmlDoc.addNode(xmlDoc.root, 'gmd:test2');
+        xmlDoc.addNode(xmlDoc.root, 'gmd:test3');
+        var test4 = xmlDoc.addNode(xmlDoc.root, 'gmd:test4');
+        var attributes = {
+            att1: 'value1',
+            att2: 'value2'
+        };
+        xmlDoc.addNode(test4, 'gco:test4-1', 'test', attributes);
+        xmlDoc.addNode(test4, 'gco:test4-2', 'test2');
+
+        console.log(xmlDoc, xmlDoc.getXmlString({
+            beautifier: true
+        }));
+
+        // Add node
+        var test4 = xmlDoc.getNodeFromPath('//gmd:MD_Metadata/gmd:test4').snapshotItem(0);
+        xmlDoc.addNode(test4, 'gco:test4-3', 'test3');
+        console.log(xmlDoc, xmlDoc.getXmlString({
+            beautifier: true
+        }));
+
+        // Remove node
+        // TODO: add function xmlDoc.removeElement()
+        // xmlDoc.documentElement.removeChild(node);
+        // Remove current node: x.parentNode.removeChild(x);
+        // Remove text node: y = x.childNodes[0]; x.removeChild(y);
+        // Clear text node (use nodeValue property): xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue = "";
+        // var test4_1 = xmlDoc.getNodeFromPath('//gmd:MD_Metadata/gmd:test4/gco:test4-1').snapshotItem(0);
+        var test4_1 = xmlDoc.getNodeFromPath('//gmd:MD_Metadata/gmd:test4/gco:test4-1', xmlDoc.xml, 'iterator').iterateNext();
+        // console.log(test4_1);
+        test4.removeChild(test4_1);
+        console.log(xmlDoc, xmlDoc.getXmlString({
+            beautifier: true
+        }));
+        // console.log(xmlDoc, vkbeautify.xmlmin(xmlDoc.getXmlString({})));
+
+        // Remove attributes:
+        // By name:
+        // x[0].removeAttribute("category");
+        // By object:
+        // x = xmlDoc.getElementsByTagName("book");
+        // for (i = 0; i < x.length; i++) {
+        //     while (x[i].attributes.length > 0) {
+        //         attnode = x[i].attributes[0];
+        //         old_att = x[i].removeAttributeNode(attnode);
+        //     }
+        // }
+
+        // Replace:
+        // x=xmlDoc.documentElement;
+        // x.replaceChild(newNode,y);
+        // Replace data:
+        // x.replaceData(0,8,"Easy"); // or use nodeValue instead
+
+        // Get attribute:
+        // elementNode.getAttribute(name)
+
+        var test4_2 = xmlDoc.getNodeFromPath('//gmd:MD_Metadata/gmd:test4/gco:test4-2/text()');
+        // var test4_1 = xmlDoc.getNodeByXpath('//gmd:root/*/gmd:test1-1');
+        for (var i = 0; i < test4_2.snapshotLength; i++) {
+            var a = test4_2.snapshotItem(i).textContent;
+            console.log('test4_2 textContent:', a);
+        }
+        console.log('test4_2 length:', test4_2.snapshotLength);
+
+        var test4_3 = xmlDoc.getNodeFromPath('//gmd:MD_Metadata/gmd:test4/gco:test4-3/text()', xmlDoc.xml, 'iterator');
+        var iterator = test4_3.iterateNext();
+        while (iterator) {
+            console.log('test4_3 textContent:', a);
+            iterator = test4_3.iterateNext();
+        }
+
+        var xmlDoc2 = new mdjs.XmlDoc(false, mdjs.root, mdjs.xmlns);
+        xmlDoc2.addNode(xmlDoc2.root, 'gmd:test1');
+        var test = xmlDoc2.addNode(xmlDoc2.root, 'gmd:test');
+        var test0 = xmlDoc2.addNode(test, 'gmd:test0');
+        var node1 = xmlDoc2.addNode(test0, 'gmd:node1');
+
+        var path = '//gmd:test1/gmd:test2/gco:test3';
+        console.log(xmlDoc2.addTreeFromPath(xmlDoc2, path, node1).getXmlString({
+            beautifier: true
+        }));
+        // console.log(xmlDoc2.addTreeFromPath(xmlDoc2, path).getXmlString({beautifier: true}));
+
+        // var path = '//gmd:test1/gmd:test2/gco:test3';
+        var path = {
+            "gmd:node1": {
+                "name": "gmd:node1",
+                "text": "",
+                "attributes": "",
+                "children": {
+                    "gco:node3": {
+                        "name": "gco:node3",
+                        "text": "Hello 3",
+                        "attributes": {
+                            "att1": 'value1',
+                            "att2": 'value2'
+                        },
+                        "children": ""
+                    },
+                    "gco:node4": {
+                        "name": "gco:node4",
+                        "text": "",
+                        "attributes": "",
+                        "children": ""
+                    }
+                }
+            },
+            "gmd:node2-1": {
+                "name": "gmd:node2",
+                "text": "Hello 4",
+                "attributes": "",
+                "children": ""
+            },
+            "gmd:node2-2": {
+                "name": "gmd:node2",
+                "text": "Hello 4",
+                "attributes": "",
+                "children": ""
+            },
+            "gmd:node5": {
+                "name": "gmd:node5",
+                "text": "Hello 4",
+                "attributes": "",
+                "children": ""
+            },
+            "gmd:node10": {
+                "name": "gmd:node10",
+                "text": "Hello 4",
+                "attributes": "",
+                "children": ""
+            }
+        };
+
+        console.log(xmlDoc2.addTreeFromObj(xmlDoc2, path, test0, true).getXmlString({
+            beautifier: true
+        }));
+        console.log(xmlDoc2.addTreeFromObj(xmlDoc2, path).getXmlString({
+            beautifier: true
+        }));
+
+        var path2 = '//gmd:MD_Metadata/gmd:node1/gco:node3/@att2';
+        // console.log(xmlDoc2.getNodeFromPath(path2).snapshotItem(0).textContent);
+        console.log(xmlDoc2.getNodeValues(path2)[0]);
+        // console.log(xmlDoc2.getNodeByXpath(path2).snapshotItem(0).getAttribute('att2'));
+
+        jQuery.noConflict();
+        (function(jQuery) {
+            jQuery.ajax({
+                // url: 'data/test.xml',
+                // url: 'data/ortho.xml',
+                url: 'data/IGNF_SCAN1000r_2-0.xml',
+                // url: 'data/service.xml',
+                success: function(response) {
+                    ////////////////////////////////////////////////////////////
+                    // Test mdjs.Metadata Classe
+                    ////////////////////////////////////////////////////////////
+                    var metadata = new mdjs.Metadata();
+                    metadata.setXml(response);
+                    // console.log(response);
+                    console.log('metadata.xml (XmlDoc):', metadata.get('xml'));
+                    console.log('metadata.xml (Normal string):', metadata.getXmlString({}));
+                    console.log('metadata.xml (String with beautifier):', metadata.getXmlString({
+                        beautifier: true
+                    }));
+                    console.log('metadata.xml (String with minify):', metadata.getXmlString({
+                        minify: true
+                    }));
+                    console.log('metadata.json:', metadata.get('json'));
+                    console.log('fileIdentifier:', metadata.get('xml').getNodeValues('//gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString')[0]);
+                    console.log('fileIdentifier 2:', metadata.get('xml').getNodeValues(mdjs.model_xml.main.mdFileIdentifier.xpath)[0]);
+                    // Other way with relative path
+                    // var root = metadata.get('xml').getNodeFromPath('//gmd:MD_Metadata').iterateNext();
+                    var root = metadata.get('xml').getNodeFromPath('//gmd:MD_Metadata').snapshotItem(0);
+                    console.log(root);
+                    console.log('fileIdentifier (relative path):', metadata.get('xml').getNodeValues('gmd:fileIdentifier/gco:CharacterString', root)[0]);
+
+                    // console.log(JSON.stringify(metadata.getJson()));
+                    console.log(metadata.getJson());
+
+                    ////////////////////////////////////////////////////////////
+                    // Test mdjs.Metadata Classe
+                    ////////////////////////////////////////////////////////////
+                    // console.log('response:', response);
+                    var metadata2 = new mdjs.Metadata();
+                    // //metadata2.setJson(metadata.getJson());
+                    //
+                    console.log(metadata2.getXmlString({
+                        beautifier: true
+                    }, metadata.getJson()));
+
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log('Data Could Not Be Loaded - ' + textStatus);
+                }
+            });
+        })(jQuery);
+
+        (function(jQuery) {
+            jQuery.ajax({
+                dataType: "json",
+                // url: 'data/test.xml',
+                url: 'data/ortho.json',
+                success: function(response) {
+                    ////////////////////////////////////////////////////////////
+                    // Test mdjs.Metadata Classe
+                    ////////////////////////////////////////////////////////////
+                    // console.log('response:', response);
+                    var metadata = new mdjs.Metadata();
+                    metadata.setJson(response);
+
+                    // console.log(metadata.getXmlString({
+                    //     beautifier: true
+                    // }, response));
+
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log('Data Could Not Be Loaded - ' + textStatus);
+                }
+            });
+        })(jQuery);
+    </script>
+</body>
+
+</html>
