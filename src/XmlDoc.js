@@ -5,6 +5,16 @@
 (function(mdjs, undefined) {
     "use strict";
 
+    /**
+     * @class mdjs.XmlDoc
+     * @param  {XML document} xmlDoc        - XML document to initialize XmlDoc object
+     * @param  {XML element} rootElement    - Root element to initialize XmlDoc object
+     * @param  {Array} xmlns                - List of name space of XML document
+     * @return {Object}                     - XmlDoc object
+     * @property {XML document} doc         - XML document to initialize XmlDoc object
+     * @property {XML element} root         - Root element to initialize XmlDoc object
+     * @property {Array} xmlns              - List of name space of XML document
+     */
     mdjs.XmlDoc = function(xmlDoc, rootElement, xmlns) {
         if (xmlDoc) {
             this.doc = xmlDoc;
@@ -32,6 +42,10 @@
         return this;
     };
 
+    /**
+     * Get the list of name space of XML document
+     * @return {Array}  - list of name space of XML document
+     */
     mdjs.XmlDoc.prototype.getXmlns = function() {
         var xmlns = mdjs.xmlns;
         if (this.root) {
@@ -45,6 +59,14 @@
         return xmlns;
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} parentNode     [description]
+     * @param  {[type]} nodeName       [description]
+     * @param  {[type]} nodeText       [description]
+     * @param  {[type]} nodeAttributes [description]
+     * @return {[type]}                [description]
+     */
     mdjs.XmlDoc.prototype.addNode = function(parentNode, nodeName, nodeText, nodeAttributes) {
         // Define params
         nodeText = nodeText || undefined;
@@ -72,6 +94,13 @@
         return childNode;
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} path       [description]
+     * @param  {[type]} doc        [description]
+     * @param  {[type]} resultType [description]
+     * @return {[type]}            [description]
+     */
     mdjs.XmlDoc.prototype.getNodeFromPath = function(path, doc, resultType) {
         var types = {
             snapshot: 'ORDERED_NODE_SNAPSHOT_TYPE',
@@ -89,6 +118,12 @@
         return evaluator.evaluate(path, doc, nsResolver, XPathResult[types[resultType]], null);
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} path [description]
+     * @param  {[type]} doc  [description]
+     * @return {[type]}      [description]
+     */
     mdjs.XmlDoc.prototype.getNodeValues = function(path, doc) {
         var nodes = this.getNodeFromPath(path, doc);
         var result = [];
@@ -99,6 +134,14 @@
     };
 
     // If append = true => always add new node, else use existing node (if exists)
+    /**
+     * [function description]
+     * @param  {[type]} doc    [description]
+     * @param  {[type]} path   [description]
+     * @param  {[type]} parent [description]
+     * @param  {[type]} append [description]
+     * @return {[type]}        [description]
+     */
     mdjs.XmlDoc.prototype.addTreeFromPath = function(doc, path, parent, append) {
         append = append || false;
         parent = parent || doc.root;
@@ -116,6 +159,14 @@
     };
 
     // If append = true => always add new node, else use existing node (if exists)
+    /**
+     * [function description]
+     * @param  {[type]} doc    [description]
+     * @param  {[type]} path   [description]
+     * @param  {[type]} parent [description]
+     * @param  {[type]} append [description]
+     * @return {[type]}        [description]
+     */
     mdjs.XmlDoc.prototype.addTreeFromObj = function(doc, path, parent, append) {
         parent = parent || doc.root;
         append = append || false;
@@ -133,6 +184,11 @@
         return doc;
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} config [description]
+     * @return {[type]}        [description]
+     */
     mdjs.XmlDoc.prototype.getXmlString = function(config) {
         //  Define params
         var beautifier = config.beautifier || false;

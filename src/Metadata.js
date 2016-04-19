@@ -5,12 +5,23 @@
 (function(mdjs, undefined) {
     "use strict";
 
+    /**
+     * Metadata object class
+     * @return {Object} - Metadata object
+     */
     mdjs.Metadata = function() {
         this.xml = new mdjs.XmlDoc(false, mdjs.root, mdjs.xmlns);
         this.json = mdjs.json;
         return this;
     };
 
+    /**
+     * Set XML property
+     * @param  {XML document} xmlDoc        - XML document to initialize Metadata object
+     * @param  {XML element} rootElement    - Root element to initialize Metadata object
+     * @param  {Array} xmlns                - List of name space of XML document
+     * @return {Object}                     - Metadata object
+     */
     mdjs.Metadata.prototype.setXml = function(xmlDoc, rootElement, xmlns) {
         if (xmlDoc) {
             this.xml = new mdjs.XmlDoc(xmlDoc);
@@ -20,44 +31,120 @@
         return this;
     };
 
+    /**
+     * Set JSON property
+     * @param  {Object} json - Objet to initialize json property
+     * @return {Object}      - Metadata object
+     */
     mdjs.Metadata.prototype.setJson = function(json) {
         this.json = json || mdjs.json;
         return this;
     };
 
-    mdjs.Metadata.prototype.getXml = function(json) {
+    /**
+     * Get XML document from JSON property
+     * @param  {Object} json - Objet to set json property if necessary
+     * @return {Object}      - Metadata XML document property
+     */
+    mdjs.Metadata.prototype.getXml = function() {
+        return this.xml;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} config [description]
+     * @param  {[type]} json   [description]
+     * @return {[type]}        [description]
+     */
+    mdjs.Metadata.prototype.getXmlString = function(config) {
+        return this.getXml().getXmlString(config);
+    };
+
+    /**
+     * Get XML document from JSON property
+     * @param  {Object} json - Objet to set json property if necessary
+     * @return {Object}      - Metadata XML document property
+     */
+    mdjs.Metadata.prototype.toXml = function(json) {
         this.json = json || this.json;
         this.xml = this._json2Xml(this.xml, mdjs.model_xml.main, this.json, this.xml.root);
         return this.xml;
     };
 
-    mdjs.Metadata.prototype.getXmlString = function(config, json) {
-        return this.getXml(json).getXmlString(config);
+    /**
+     * [function description]
+     * @param  {[type]} config [description]
+     * @param  {[type]} json   [description]
+     * @return {[type]}        [description]
+     */
+    mdjs.Metadata.prototype.toXmlString = function(config, json) {
+        return this.toXml(json)
+            .getXmlString(config);
     };
 
-    mdjs.Metadata.prototype.getJson = function(xml) {
+    /**
+     * [function description]
+     * @param  {[type]} xml [description]
+     * @return {[type]}     [description]
+     */
+    mdjs.Metadata.prototype.getJson = function() {
+        return this.json;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} xml [description]
+     * @return {[type]}     [description]
+     */
+    mdjs.Metadata.prototype.toJson = function(xml) {
         this.xml = xml || this.xml;
         this.json = this._xml2Json(this.xml, mdjs.model_xml.main, this.xml.doc);
         return this.json;
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} property [description]
+     * @return {[type]}          [description]
+     */
     mdjs.Metadata.prototype.get = function(property) {
         return this[property] || undefined;
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} property [description]
+     * @param  {[type]} value    [description]
+     * @return {[type]}          [description]
+     */
     mdjs.Metadata.prototype.set = function(property, value) {
         this[property] = value || undefined;
         return this[property];
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} node [description]
+     * @return {[type]}      [description]
+     */
     mdjs.Metadata.prototype.getXmlValues = function(node) {
         return this.xml.getNodeValues(mdjs.model_xml.main[node].xpath);
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} node [description]
+     * @return {[type]}      [description]
+     */
     mdjs.Metadata.prototype.getJsonValues = function(node) {
         return this.json[node];
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} type [description]
+     * @return {[type]}      [description]
+     */
     mdjs.Metadata.prototype._isService = function(type) {
         if (type == 'xml') {
             return this.getXmlValues('mdHierarchyLevel')[0] == 'service';
@@ -66,8 +153,14 @@
         }
     };
 
+    /**
+     * [function description]
+     * @param  {[type]} doc   [description]
+     * @param  {[type]} model [description]
+     * @param  {[type]} xml   [description]
+     * @return {[type]}       [description]
+     */
     mdjs.Metadata.prototype._xml2Json = function(doc, model, xml) {
-        // console.log(this._isService('xml'));
         var json = {};
         for (var node in model) {
             // Define xpath variable. Use xpath_srv property if Metadata concern service.
@@ -96,12 +189,14 @@
                     if (model[node].hasOwnProperty('children')) {
                         var child = this._xml2Json(doc, model[node].children, elts.snapshotItem(i));
                         // If only one children item property, remove nodeName
-                        if (Object.keys(model[node].children).length === 1) {
+                        if (Object.keys(model[node].children)
+                            .length === 1) {
                             for (var c in model[node].children) {
                                 child = child[c];
                             }
                         }
-                        if (child && Object.keys(child).length) {
+                        if (child && Object.keys(child)
+                            .length) {
                             array.push(child);
                         }
                     }
@@ -147,6 +242,11 @@
     };
 
     // Hash string to get an id
+    /**
+     * [function description]
+     * @param  {[type]} string [description]
+     * @return {[type]}        [description]
+     */
     mdjs.Metadata.prototype._getHash = function(string) {
         var hash = 0;
         for (var c = 0; c < string.length; c++) {
@@ -156,6 +256,14 @@
         return hash;
     };
 
+/**
+ * [function description]
+ * @param  {[type]} doc    [description]
+ * @param  {[type]} model  [description]
+ * @param  {[type]} json   [description]
+ * @param  {[type]} parent [description]
+ * @return {[type]}        [description]
+ */
     mdjs.Metadata.prototype._json2Xml = function(doc, model, json, parent) {
         for (var node in model) {
             if (json[node] && !model[node].skip) {
@@ -201,7 +309,8 @@
                                 }
                                 for (var value in json[node]) {
                                     var subParent = doc.addNode(localParent, items[i]);
-                                    if (Object.keys(model[node].children).length === 1) {
+                                    if (Object.keys(model[node].children)
+                                        .length === 1) {
                                         // json[node] is an array of string and not an array of objects
                                         var child_property = Object.keys(model[node].children)[0];
                                         var json_value = json[node][value];
@@ -215,10 +324,12 @@
                         if (items[i] == 'gml:TimePeriod') {
                             attributes['gml:id'] = 'timePeriod_' + this._getHash(json[node]);
                         }
-                        if (doc.getNodeFromPath(items[i], localParent).snapshotLength === 0) {
+                        if (doc.getNodeFromPath(items[i], localParent)
+                            .snapshotLength === 0) {
                             localParent = doc.addNode(localParent, items[i], text, attributes);
                         } else {
-                            localParent = doc.getNodeFromPath(items[i], localParent).snapshotItem(0);
+                            localParent = doc.getNodeFromPath(items[i], localParent)
+                                .snapshotItem(0);
                         }
                     }
                 }

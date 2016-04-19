@@ -3,6 +3,10 @@ var mdjs = {};
 (function(mdjs, undefined) {
     "use strict";
 
+    /**
+     * List of default name space
+     * @type {Object}
+     */
     mdjs.xmlns = {
         "xmlns": "http://www.w3.org/2000/xmlns/",
         "xsi": "http://www.w3.org/2001/XMLSchema-instance",
@@ -23,8 +27,16 @@ var mdjs = {};
 
     };
 
+    /**
+     * Default XML root element
+     * @type {String}
+     */
     mdjs.root = "gmd:MD_Metadata";
 
-    mdjs.json = {};
+    // /**
+    //  *
+    //  * @type {Object}
+    //  */
+    // mdjs.json = {};
 
 }(window.mdjs = window.mdjs || {}));

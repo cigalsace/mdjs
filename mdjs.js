@@ -1,3 +1,251 @@
+var mdjs = {};
+
+(function(mdjs, undefined) {
+    "use strict";
+
+    /**
+     * List of default name space
+     * @type {Object}
+     */
+    mdjs.xmlns = {
+        "xmlns": "http://www.w3.org/2000/xmlns/",
+        "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "xmlns:gco": "http://www.isotc211.org/2005/gco",
+        "xmlns:gts": "http://www.isotc211.org/2005/gts",
+        "xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+        // "xmlns:gml": "http://www.opengis.net/gml",
+        "xmlns:gml": "http://www.opengis.net/gml/3.2",
+        "xmlns:gsr": "http://www.isotc211.org/2005/gsr",
+        "xmlns:gmx": "http://www.isotc211.org/2005/gmx",
+        "xmlns:gss": "http://www.isotc211.org/2005/gss",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        "xmlns:gmd": "http://www.isotc211.org/2005/gmd",
+        "xmlns:srv": "http://www.isotc211.org/2005/srv",
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "xmlns:xi": "http://www.w3.org/2001/XInclude",
+        "xsi:schemaLocation": "http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd",
+
+    };
+
+    /**
+     * Default XML root element
+     * @type {String}
+     */
+    mdjs.root = "gmd:MD_Metadata";
+
+    // /**
+    //  *
+    //  * @type {Object}
+    //  */
+    // mdjs.json = {};
+
+}(window.mdjs = window.mdjs || {}));
+(function(mdjs, undefined) {
+    "use strict";
+
+    /**
+     * empty_json main object
+     * lends mdjs
+     * @type {Object}
+     */
+    mdjs.empty_json = {};
+
+    /**
+     * Empty contact object
+     * lends mdjs.empty_json
+     * @type {Array}
+     */
+    mdjs.empty_json.contact = {
+        "individualName": "",
+        "positionName": "",
+        "organisationName": "",
+        "deliveryPoints": "",
+        "postalCode": "",
+        "city": "",
+        "phoneVoices": "",
+        "emails": "",
+        "role": "",
+        "logoDescription": "",
+        "logoUrl": ""
+    };
+
+    /**
+     * Empty date object
+     * lends mdjs.empty_json
+     * @type {Array}
+     */
+    mdjs.empty_json.date = {
+        "dateType": "",
+        "date": ""
+    };
+
+    /**
+     * Empty resource identifier object
+     * @type {Array}
+     */
+    mdjs.empty_json.identifier = {
+        "code": "",
+        "codeSpace": ""
+    };
+
+    /**
+     * Empty geographic extent object
+     * @type {Array}
+     */
+    mdjs.empty_json.geographicextent = {
+        "name": "",
+        "xmin": "",
+        "xmax": "",
+        "ymin": "",
+        "ymax": ""
+    };
+
+    /**
+     * Empty browse graphic object
+     * @type {Array}
+     */
+    mdjs.empty_json.browsegraphic = {
+        "fileName": "",
+        "fileDescription": "",
+        "fileType": ""
+    };
+
+    /**
+     * Empty temporal extent object
+     * @type {Array}
+     */
+    mdjs.empty_json.temporalextent = {
+        "begin": "",
+        "end": "",
+        "description": ""
+    };
+
+    /**
+     * Empty keyword object
+     * @type {Array}
+     */
+    mdjs.empty_json.keyword = {
+        "keyword": "",
+        "type": "",
+        "thesaurusName": "",
+        "thesaurusDates": [{
+            "dateType": "",
+            "date": ""
+        }]
+    };
+
+    /**
+     * Empty inspire keyword object
+     * @type {Array}
+     */
+    mdjs.empty_json.inspirekeyword = {
+        "keyword": "",
+        "type": "",
+        "thesaurusName": "GEMET - INSPIRE themes, version 1.0",
+        "thesaurusDates": [{
+            "type": "publication",
+            "date": "2008-06-01"
+        }]
+    };
+
+    /**
+     * Empty reference system object
+     * @type {Array}
+     */
+    mdjs.empty_json.referencesystem = {
+        "code": "",
+        "codeSpace": ""
+    };
+
+    /**
+     * Empty data format object
+     * @type {Array}
+     */
+    mdjs.empty_json.distributionformat = {
+        "name": "",
+        "version": "",
+        "specification": ""
+    };
+
+    /**
+     * Empty linkage object
+     * @type {Array}
+     */
+    mdjs.empty_json.linkage = {
+        "name": "",
+        "description": "",
+        "url": "",
+        "protocol": ""
+    };
+
+    /**
+     * Empty data quality conformity object
+     * @type {Array}
+     */
+    mdjs.empty_json.dq_conformity = {
+        "specification": "",
+        "explaination": "",
+        "pass": "",
+        "dates": [{
+            "type": "",
+            "date": ""
+        }]
+    };
+
+    /**
+     * Empty metdata object
+     * @type {Array}
+     */
+    mdjs.empty_json.metadata = {
+        "mdFileidentifier": "",
+        "mdLanguage": "",
+        "mdCharacterSet": "",
+        "mdHierarchyLevel": "",
+        "mdContacts": [],
+        "mdDateStamp": "",
+        "mdStandardName": "",
+        "mdStandardVersion": "",
+        "dataTitle": "",
+        "dataDates": [],
+        "dataDateCreation": "",
+        "dataDatePublication": "",
+        "dataDateRevision": "",
+        "dataIdentifiers": [],
+        "dataAbstract": "",
+        "dataBrowsegraphics": [],
+        "dataMaintenanceFrequency": "",
+        "dataTemporalExtents": [],
+        "dataLanguages": [],
+        "dataTopicCategories": [],
+        "dataKeywords": [],
+        "dataInspireKeywords": [],
+        "dataKeywordsList": "",
+        "dataPointOfContacts": [],
+        "dataGeographicExtents": [],
+        "dataReferenceSystems": [],
+        "dataPresentationForm": "",
+        "dataSpatialRepresentationType": "",
+        "dataScaleDenominator": "",
+        "dataScaleDistance": "",
+        "dataDqLevel": "",
+        "dataLiStatement": "",
+        "dataCharacterSet": "",
+        "dataDistributionFormats": [],
+        "dataUseLimitations": [],
+        "dataLegalUseLimitations": [],
+        "dataLegalUseConstraints": [],
+        "dataLegalAccessConstraints": [],
+        "dataLegalAccessInspireConstraints": [],
+        "dataLegalAccessotherConstraints": [],
+        "dataSecurityClassification": "",
+        "dataSecurityUseLimitations": [],
+        "dataLinkages": [],
+        "dataDqInspireConformities": [],
+        "dataDqConformities": []
+    };
+
+
+}(window.mdjs = window.mdjs || {}));
 (function(mdjs, undefined) {
     "use strict";
 
@@ -1023,6 +1271,557 @@
                 }
             }
         },
+    };
+
+}(window.mdjs = window.mdjs || {}));
+////////////////////////////////////////////////////////////////////////
+// Classe xmlDoc
+////////////////////////////////////////////////////////////////////////
+
+(function(mdjs, undefined) {
+    "use strict";
+
+    /**
+     * @class mdjs.XmlDoc
+     * @param  {XML document} xmlDoc        - XML document to initialize XmlDoc object
+     * @param  {XML element} rootElement    - Root element to initialize XmlDoc object
+     * @param  {Array} xmlns                - List of name space of XML document
+     * @return {Object}                     - XmlDoc object
+     * @property {XML document} doc         - XML document to initialize XmlDoc object
+     * @property {XML element} root         - Root element to initialize XmlDoc object
+     * @property {Array} xmlns              - List of name space of XML document
+     */
+    mdjs.XmlDoc = function(xmlDoc, rootElement, xmlns) {
+        if (xmlDoc) {
+            this.doc = xmlDoc;
+            this.root = this.doc.documentElement;
+            this.xmlns = this.getXmlns();
+        } else {
+            // Define params
+            rootElement = rootElement || mdjs.root;
+            this.xmlns = xmlns || mdjs.xmlns;
+            // Create XML document
+            this.doc = document.implementation.createDocument('', '', null);
+            // Create root node
+            this.root = this.doc.createElementNS(xmlns['xmlns:gmd'], rootElement);
+            this.doc.appendChild(this.root);
+            // Add default namespace - simple xmlns attribute
+            this.root.setAttribute('xmlns', this.xmlns.gmd);
+            // Add other namespace - attribute in xmlns namespace
+            for (var ns in this.xmlns) {
+                var ns_parts = ns.split(':');
+                if (ns_parts.length > 1) {
+                    this.root.setAttributeNS(this.xmlns[ns_parts[0]], ns, this.xmlns[ns]);
+                }
+            }
+        }
+        return this;
+    };
+
+    /**
+     * Get the list of name space of XML document
+     * @return {Array}  - list of name space of XML document
+     */
+    mdjs.XmlDoc.prototype.getXmlns = function() {
+        var xmlns = mdjs.xmlns;
+        if (this.root) {
+            var attrs = this.root.attributes;
+            for (var i = 0; i < attrs.length; ++i) {
+                if (attrs[i].name.indexOf("xmlns:") === 0) {
+                    xmlns[attrs[i].name] = attrs[i].value;
+                }
+            }
+        }
+        return xmlns;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} parentNode     [description]
+     * @param  {[type]} nodeName       [description]
+     * @param  {[type]} nodeText       [description]
+     * @param  {[type]} nodeAttributes [description]
+     * @return {[type]}                [description]
+     */
+    mdjs.XmlDoc.prototype.addNode = function(parentNode, nodeName, nodeText, nodeAttributes) {
+        // Define params
+        nodeText = nodeText || undefined;
+        nodeAttributes = nodeAttributes || {};
+        var childNode;
+        // Create childNode element with name space if necessary
+        var nodeNameParts = nodeName.split(':');
+        if (nodeNameParts.length === 1) {
+            childNode = this.doc.createElement(nodeName);
+        } else {
+            var nameSpace = nodeNameParts[0];
+            childNode = this.doc.createElementNS(this.xmlns['xmlns:'+nameSpace], nodeName);
+        }
+        // Add text to childNode if necessary
+        if (nodeText) {
+            var text = this.doc.createTextNode(nodeText);
+            childNode.appendChild(text);
+        }
+        // Add nodeAttributes to childNode if necessary
+        for (var attribute in nodeAttributes) {
+            childNode.setAttribute(attribute, nodeAttributes[attribute]);
+        }
+        // Add childNode to parentNode
+        parentNode.appendChild(childNode);
+        return childNode;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} path       [description]
+     * @param  {[type]} doc        [description]
+     * @param  {[type]} resultType [description]
+     * @return {[type]}            [description]
+     */
+    mdjs.XmlDoc.prototype.getNodeFromPath = function(path, doc, resultType) {
+        var types = {
+            snapshot: 'ORDERED_NODE_SNAPSHOT_TYPE',
+            any: 'ANY_TYPE',
+            iterator: 'UNORDERED_NODE_ITERATOR_TYPE'
+        };
+        doc = doc || this.doc;
+        resultType = resultType || 'snapshot';
+        var xmlns = this.xmlns;
+        function nsResolver(prefix) {
+            prefix = prefix || 'xmlns';
+            return xmlns['xmlns:'+prefix] || null;
+        }
+        var evaluator = new XPathEvaluator();
+        return evaluator.evaluate(path, doc, nsResolver, XPathResult[types[resultType]], null);
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} path [description]
+     * @param  {[type]} doc  [description]
+     * @return {[type]}      [description]
+     */
+    mdjs.XmlDoc.prototype.getNodeValues = function(path, doc) {
+        var nodes = this.getNodeFromPath(path, doc);
+        var result = [];
+        for (var i = 0; i < nodes.snapshotLength; i++) {
+            result.push(nodes.snapshotItem(i).textContent.trim());
+        }
+        return result;
+    };
+
+    // If append = true => always add new node, else use existing node (if exists)
+    /**
+     * [function description]
+     * @param  {[type]} doc    [description]
+     * @param  {[type]} path   [description]
+     * @param  {[type]} parent [description]
+     * @param  {[type]} append [description]
+     * @return {[type]}        [description]
+     */
+    mdjs.XmlDoc.prototype.addTreeFromPath = function(doc, path, parent, append) {
+        append = append || false;
+        parent = parent || doc.root;
+        var items = path.split('/');
+        for (var i = 0; i < items.length; i++) {
+            if (items[i] && items[i] != "text()" && items[i] != "@codeListValue") {
+                if (append || doc.getNodeFromPath(items[i], parent).snapshotLength === 0) {
+                    parent = doc.addNode(parent, items[i]);
+                } else {
+                    parent = doc.getNodeFromPath(items[i], parent).snapshotItem(0);
+                }
+            }
+        }
+        return doc;
+    };
+
+    // If append = true => always add new node, else use existing node (if exists)
+    /**
+     * [function description]
+     * @param  {[type]} doc    [description]
+     * @param  {[type]} path   [description]
+     * @param  {[type]} parent [description]
+     * @param  {[type]} append [description]
+     * @return {[type]}        [description]
+     */
+    mdjs.XmlDoc.prototype.addTreeFromObj = function(doc, path, parent, append) {
+        parent = parent || doc.root;
+        append = append || false;
+        var node;
+        for (var p in path) {
+            if (append || doc.getNodeFromPath(path[p].name, parent).snapshotLength === 0) {
+                node = doc.addNode(parent, path[p].name, path[p].text, path[p].attributes);
+            } else {
+                node = doc.getNodeFromPath(path[p].name, parent).snapshotItem(0);
+            }
+            if (path[p].hasOwnProperty('children')) {
+                this.addTreeFromObj(doc, path[p].children, node);
+            }
+        }
+        return doc;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} config [description]
+     * @return {[type]}        [description]
+     */
+    mdjs.XmlDoc.prototype.getXmlString = function(config) {
+        //  Define params
+        var beautifier = config.beautifier || false;
+        var minify = config.minify || false;
+        var version = config.version || '1.0';
+        var characterSet = config.characterSet || 'UTF-8';
+        var header = header || '<?xml version="' + version + '" encoding="' + characterSet + '"?>\n';
+        // Serialize XML document
+        var data = new XMLSerializer().serializeToString(this.doc);
+        // Return standard or beatify XML string
+        if (beautifier) {
+            return vkbeautify.xml(header + data);
+        } else if (minify) {
+            return vkbeautify.xmlmin(header + data);
+        }
+        return header + data;
+    };
+
+}(window.mdjs = window.mdjs || {}));
+////////////////////////////////////////////////////////////////////////
+// Classe Metadata
+////////////////////////////////////////////////////////////////////////
+
+(function(mdjs, undefined) {
+    "use strict";
+
+    /**
+     * Metadata object class
+     * @return {Object} - Metadata object
+     */
+    mdjs.Metadata = function() {
+        this.xml = new mdjs.XmlDoc(false, mdjs.root, mdjs.xmlns);
+        this.json = mdjs.json;
+        return this;
+    };
+
+    /**
+     * Set XML property
+     * @param  {XML document} xmlDoc        - XML document to initialize Metadata object
+     * @param  {XML element} rootElement    - Root element to initialize Metadata object
+     * @param  {Array} xmlns                - List of name space of XML document
+     * @return {Object}                     - Metadata object
+     */
+    mdjs.Metadata.prototype.setXml = function(xmlDoc, rootElement, xmlns) {
+        if (xmlDoc) {
+            this.xml = new mdjs.XmlDoc(xmlDoc);
+        } else {
+            this.xml = new mdjs.XmlDoc(false, mdjs.root, mdjs.xmlns);
+        }
+        return this;
+    };
+
+    /**
+     * Set JSON property
+     * @param  {Object} json - Objet to initialize json property
+     * @return {Object}      - Metadata object
+     */
+    mdjs.Metadata.prototype.setJson = function(json) {
+        this.json = json || mdjs.json;
+        return this;
+    };
+
+    /**
+     * Get XML document from JSON property
+     * @param  {Object} json - Objet to set json property if necessary
+     * @return {Object}      - Metadata XML document property
+     */
+    mdjs.Metadata.prototype.getXml = function() {
+        return this.xml;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} config [description]
+     * @param  {[type]} json   [description]
+     * @return {[type]}        [description]
+     */
+    mdjs.Metadata.prototype.getXmlString = function(config) {
+        return this.getXml().getXmlString(config);
+    };
+
+    /**
+     * Get XML document from JSON property
+     * @param  {Object} json - Objet to set json property if necessary
+     * @return {Object}      - Metadata XML document property
+     */
+    mdjs.Metadata.prototype.toXml = function(json) {
+        this.json = json || this.json;
+        this.xml = this._json2Xml(this.xml, mdjs.model_xml.main, this.json, this.xml.root);
+        return this.xml;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} config [description]
+     * @param  {[type]} json   [description]
+     * @return {[type]}        [description]
+     */
+    mdjs.Metadata.prototype.toXmlString = function(config, json) {
+        return this.toXml(json)
+            .getXmlString(config);
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} xml [description]
+     * @return {[type]}     [description]
+     */
+    mdjs.Metadata.prototype.getJson = function() {
+        return this.json;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} xml [description]
+     * @return {[type]}     [description]
+     */
+    mdjs.Metadata.prototype.toJson = function(xml) {
+        this.xml = xml || this.xml;
+        this.json = this._xml2Json(this.xml, mdjs.model_xml.main, this.xml.doc);
+        return this.json;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} property [description]
+     * @return {[type]}          [description]
+     */
+    mdjs.Metadata.prototype.get = function(property) {
+        return this[property] || undefined;
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} property [description]
+     * @param  {[type]} value    [description]
+     * @return {[type]}          [description]
+     */
+    mdjs.Metadata.prototype.set = function(property, value) {
+        this[property] = value || undefined;
+        return this[property];
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} node [description]
+     * @return {[type]}      [description]
+     */
+    mdjs.Metadata.prototype.getXmlValues = function(node) {
+        return this.xml.getNodeValues(mdjs.model_xml.main[node].xpath);
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} node [description]
+     * @return {[type]}      [description]
+     */
+    mdjs.Metadata.prototype.getJsonValues = function(node) {
+        return this.json[node];
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} type [description]
+     * @return {[type]}      [description]
+     */
+    mdjs.Metadata.prototype._isService = function(type) {
+        if (type == 'xml') {
+            return this.getXmlValues('mdHierarchyLevel')[0] == 'service';
+        } else {
+            return this.getJsonValues('mdHierarchyLevel') == 'service';
+        }
+    };
+
+    /**
+     * [function description]
+     * @param  {[type]} doc   [description]
+     * @param  {[type]} model [description]
+     * @param  {[type]} xml   [description]
+     * @return {[type]}       [description]
+     */
+    mdjs.Metadata.prototype._xml2Json = function(doc, model, xml) {
+        var json = {};
+        for (var node in model) {
+            // Define xpath variable. Use xpath_srv property if Metadata concern service.
+            var xpath = model[node].xpath;
+            if (model[node].hasOwnProperty('xpath_srv') && this._isService('xml')) {
+                xpath = model[node].xpath_srv;
+            }
+            if (!model[node].multi && xpath) {
+                if (model[node].hasOwnProperty('children')) {
+                    // String with children
+                    var elt = doc.getNodeFromPath(xpath, xml);
+                    json[node] = this._xml2Json(doc, model[node].children, elt.snapshotItem(0));
+                } else {
+                    // String node without child
+                    var nodeValue = doc.getNodeValues(xpath, xml)[0];
+                    if (nodeValue) {
+                        json[node] = nodeValue;
+                    }
+                }
+            } else if (model[node].multi) {
+                // json[node] is an array
+                // json[node] = [];
+                var array = [];
+                var elts = doc.getNodeFromPath(xpath, xml);
+                for (var i = 0; i < elts.snapshotLength; i++) {
+                    if (model[node].hasOwnProperty('children')) {
+                        var child = this._xml2Json(doc, model[node].children, elts.snapshotItem(i));
+                        // If only one children item property, remove nodeName
+                        if (Object.keys(model[node].children)
+                            .length === 1) {
+                            for (var c in model[node].children) {
+                                child = child[c];
+                            }
+                        }
+                        if (child && Object.keys(child)
+                            .length) {
+                            array.push(child);
+                        }
+                    }
+                    if (array.length) {
+                        json[node] = array;
+                    }
+                }
+            }
+        }
+        // Chage extents organisation
+        json = this._separateJsonExtents(json);
+        return json;
+    };
+
+    /**
+     * Separate extents property of sjson object to 3 properties: geographicExtents, temporalExtents and vertical to get more usefull object
+     * @param  {Object} sjson sjson object
+     * @return {Object}       modified sjson object
+     */
+    mdjs.Metadata.prototype._separateJsonExtents = function(json) {
+        var dataGeographicExtents = [];
+        var dataTemporalExtents = [];
+        var dataVerticalExtents = [];
+        for (var extent in json.dataExtents) {
+            if (json.dataExtents[extent].hasOwnProperty('dataGeographicExtentEastBound')) {
+                dataGeographicExtents.push(json.dataExtents[extent]);
+            } else if (json.dataExtents[extent].hasOwnProperty('dataTemporalExtentBegin')) {
+                dataTemporalExtents.push(json.dataExtents[extent]);
+            } else {
+                dataVerticalExtents.push(json.dataExtents[extent]);
+            }
+        }
+        if (dataGeographicExtents.length) {
+            json.dataGeographicExtents = dataGeographicExtents;
+        }
+        if (dataTemporalExtents.length) {
+            json.dataTemporalExtents = dataTemporalExtents;
+        }
+        if (dataVerticalExtents.length) {
+            json.dataVerticalExtents = verticalExtents;
+        }
+        return json;
+    };
+
+    // Hash string to get an id
+    /**
+     * [function description]
+     * @param  {[type]} string [description]
+     * @return {[type]}        [description]
+     */
+    mdjs.Metadata.prototype._getHash = function(string) {
+        var hash = 0;
+        for (var c = 0; c < string.length; c++) {
+            hash = ((hash << 5) + hash) + string.charCodeAt(c);
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    };
+
+/**
+ * [function description]
+ * @param  {[type]} doc    [description]
+ * @param  {[type]} model  [description]
+ * @param  {[type]} json   [description]
+ * @param  {[type]} parent [description]
+ * @return {[type]}        [description]
+ */
+    mdjs.Metadata.prototype._json2Xml = function(doc, model, json, parent) {
+        for (var node in model) {
+            if (json[node] && !model[node].skip) {
+                var xpath = model[node].xpath;
+                if (model[node].hasOwnProperty('xpath_srv') && this._isService('json')) {
+                    xpath = model[node].xpath_srv;
+                }
+                var localParent = parent;
+                if (xpath.indexOf('/') === 0) {
+                    localParent = doc.root;
+                }
+                var items = xpath.split('/');
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i] &&
+                        items[i] != "text()" &&
+                        items[i].indexOf('@') !== 0 &&
+                        items[i] != "gmd:MD_Metadata") {
+                        var text = '';
+                        var attributes = {};
+                        if (items[i + 1] && (
+                                items[i + 1] == "text()" ||
+                                items[i + 1].indexOf('@') === 0)) {
+                            text = json[node];
+                            attributes = {};
+                            if (model[node].attributes) {
+                                for (var attr in model[node].attributes) {
+                                    if (model[node].attributes[attr].indexOf('node=') === 0) {
+                                        attributes[attr] = json[model[node].attributes[attr].substring(5)];
+                                    } else {
+                                        attributes[attr] = model[node].attributes[attr];
+                                    }
+                                }
+                            }
+                            if (items[i + 1].indexOf('@') === 0) {
+                                attributes[items[i + 1].substring(1)] = json[node];
+                            }
+                        }
+                        if (model[node].hasOwnProperty('children')) { // = model[node].multi == true
+                            if (i + 1 == items.length) { // Last item of xpath
+                                if (!json[node].length) {
+                                    // json[node] is an object and not an array. Convert it to array to use it
+                                    json[node] = [json[node]];
+                                }
+                                for (var value in json[node]) {
+                                    var subParent = doc.addNode(localParent, items[i]);
+                                    if (Object.keys(model[node].children)
+                                        .length === 1) {
+                                        // json[node] is an array of string and not an array of objects
+                                        var child_property = Object.keys(model[node].children)[0];
+                                        var json_value = json[node][value];
+                                        json[node][value] = {};
+                                        json[node][value][child_property] = json_value;
+                                    }
+                                    this._json2Xml(doc, model[node].children, json[node][value], subParent);
+                                }
+                            }
+                        }
+                        if (items[i] == 'gml:TimePeriod') {
+                            attributes['gml:id'] = 'timePeriod_' + this._getHash(json[node]);
+                        }
+                        if (doc.getNodeFromPath(items[i], localParent)
+                            .snapshotLength === 0) {
+                            localParent = doc.addNode(localParent, items[i], text, attributes);
+                        } else {
+                            localParent = doc.getNodeFromPath(items[i], localParent)
+                                .snapshotItem(0);
+                        }
+                    }
+                }
+            }
+        }
+        return doc;
     };
 
 }(window.mdjs = window.mdjs || {}));

@@ -3,7 +3,7 @@
 
     /**
      * empty_json main object
-     * lends md
+     * lends mdjs
      * @type {Object}
      */
     mdjs.empty_json = {};
@@ -14,17 +14,17 @@
      * @type {Array}
      */
     mdjs.empty_json.contact = {
-        "name": "",
-        "position": "",
-        "organisation": "",
-        "address": "",
-        "cp": "",
+        "individualName": "",
+        "positionName": "",
+        "organisationName": "",
+        "deliveryPoints": "",
+        "postalCode": "",
         "city": "",
-        "phone": "",
-        "email": "",
+        "phoneVoices": "",
+        "emails": "",
         "role": "",
-        "logo_text": "",
-        "logo_url": ""
+        "logoDescription": "",
+        "logoUrl": ""
     };
 
     /**
@@ -33,7 +33,7 @@
      * @type {Array}
      */
     mdjs.empty_json.date = {
-        "type": "",
+        "dateType": "",
         "date": ""
     };
 
@@ -43,7 +43,7 @@
      */
     mdjs.empty_json.identifier = {
         "code": "",
-        "codespace": ""
+        "codeSpace": ""
     };
 
     /**
@@ -63,9 +63,9 @@
      * @type {Array}
      */
     mdjs.empty_json.browsegraphic = {
-        "url": "",
-        "description": "",
-        "type": ""
+        "fileName": "",
+        "fileDescription": "",
+        "fileType": ""
     };
 
     /**
@@ -85,9 +85,9 @@
     mdjs.empty_json.keyword = {
         "keyword": "",
         "type": "",
-        "thesaurus_name": "",
-        "thesaurus_dates": [{
-            "type": "",
+        "thesaurusName": "",
+        "thesaurusDates": [{
+            "dateType": "",
             "date": ""
         }]
     };
@@ -99,8 +99,8 @@
     mdjs.empty_json.inspirekeyword = {
         "keyword": "",
         "type": "",
-        "thesaurus_name": "GEMET - INSPIRE themes, version 1.0",
-        "thesaurus_dates": [{
+        "thesaurusName": "GEMET - INSPIRE themes, version 1.0",
+        "thesaurusDates": [{
             "type": "publication",
             "date": "2008-06-01"
         }]
@@ -112,7 +112,7 @@
      */
     mdjs.empty_json.referencesystem = {
         "code": "",
-        "codespace": ""
+        "codeSpace": ""
     };
 
     /**
@@ -155,51 +155,51 @@
      * @type {Array}
      */
     mdjs.empty_json.metadata = {
-        "md_fileidentifier": "",
-        "md_language": "",
-        "md_characterset": "",
-        "md_hierarchylevel": "",
-        "md_contacts": [],
-        "md_datestamp": "",
-        "md_standardname": "",
-        "md_standardversion": "",
-        "data_title": "",
-        "data_dates": [],
-        "data_datecreation": "",
-        "data_datepublication": "",
-        "data_daterevision": "",
-        "data_identifiers": [],
-        "data_abstract": "",
-        "data_browsegraphics": [],
-        "data_maintenancefrequencycode": "",
-        "data_temporalextents": [],
-        "data_languages": [],
-        "data_topiccategories": [],
-        "data_keywords": [],
-        "data_inspirekeywords": [],
-        "data_keywords_list": "",
-        "data_pointofcontacts": [],
-        "data_geographicextents": [],
-        "data_referencesystems": [],
-        "data_presentationform": "",
-        "data_spatialrepresentationtype": "",
-        "data_scaledenominator": "",
-        "data_scaledistance": "",
-        "data_dq_level": "",
-        "data_li_statement": "",
-        "data_characterset": "",
-        "data_distributionformats": [],
-        "data_uselimitations": [],
-        "data_legal_uselimitations": [],
-        "data_legal_useconstraints": [],
-        "data_legal_accessconstraints": [],
-        "data_legal_accessinspireconstraints": [],
-        "data_legal_accessotherconstraints": [],
-        "data_security_classification": "",
-        "data_security_uselimitations": [],
-        "data_linkages": [],
-        "data_dq_inspireconformities": [],
-        "data_dq_conformities": []
+        "mdFileidentifier": "",
+        "mdLanguage": "",
+        "mdCharacterSet": "",
+        "mdHierarchyLevel": "",
+        "mdContacts": [],
+        "mdDateStamp": "",
+        "mdStandardName": "",
+        "mdStandardVersion": "",
+        "dataTitle": "",
+        "dataDates": [],
+        "dataDateCreation": "",
+        "dataDatePublication": "",
+        "dataDateRevision": "",
+        "dataIdentifiers": [],
+        "dataAbstract": "",
+        "dataBrowsegraphics": [],
+        "dataMaintenanceFrequency": "",
+        "dataTemporalExtents": [],
+        "dataLanguages": [],
+        "dataTopicCategories": [],
+        "dataKeywords": [],
+        "dataInspireKeywords": [],
+        "dataKeywordsList": "",
+        "dataPointOfContacts": [],
+        "dataGeographicExtents": [],
+        "dataReferenceSystems": [],
+        "dataPresentationForm": "",
+        "dataSpatialRepresentationType": "",
+        "dataScaleDenominator": "",
+        "dataScaleDistance": "",
+        "dataDqLevel": "",
+        "dataLiStatement": "",
+        "dataCharacterSet": "",
+        "dataDistributionFormats": [],
+        "dataUseLimitations": [],
+        "dataLegalUseLimitations": [],
+        "dataLegalUseConstraints": [],
+        "dataLegalAccessConstraints": [],
+        "dataLegalAccessInspireConstraints": [],
+        "dataLegalAccessotherConstraints": [],
+        "dataSecurityClassification": "",
+        "dataSecurityUseLimitations": [],
+        "dataLinkages": [],
+        "dataDqInspireConformities": [],
+        "dataDqConformities": []
     };
 
 

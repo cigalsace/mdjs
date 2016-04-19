@@ -16,11 +16,13 @@
     <!-- JS Scripts -->
     <script src="lib/vkbeautify/vkbeautify.js"></script>
     <script src="lib/jquery/jquery-2.1.4.min.js"></script>
-    <script src="src/config.js"></script>
-    <!-- <script src="src/model-json.js"></script> -->
+    <!-- <script src="src/config.js"></script>
+    <script src="src/model-json.js"></script>
     <script src="src/model-xml.js"></script>
     <script src="src/XmlDoc.js"></script>
-    <script src="src/Metadata.js"></script>
+    <script src="src/Metadata.js"></script> -->
+    <!-- <script src="mdjs.js"></script> -->
+    <script src="mdjs.min.js"></script>
 
     <script language="javascript" type="text/javascript">
         ////////////////////////////////////////////////////////////////////////////
@@ -210,7 +212,7 @@
                     console.log('fileIdentifier (relative path):', metadata.get('xml').getNodeValues('gmd:fileIdentifier/gco:CharacterString', root)[0]);
 
                     // console.log(JSON.stringify(metadata.getJson()));
-                    console.log(metadata.getJson());
+                    console.log(metadata.toJson());
 
                     ////////////////////////////////////////////////////////////
                     // Test mdjs.Metadata Classe
@@ -219,7 +221,7 @@
                     var metadata2 = new mdjs.Metadata();
                     // //metadata2.setJson(metadata.getJson());
                     //
-                    console.log(metadata2.getXmlString({
+                    console.log(metadata2.toXmlString({
                         beautifier: true
                     }, metadata.getJson()));
 
@@ -235,17 +237,19 @@
                 dataType: "json",
                 // url: 'data/test.xml',
                 url: 'data/ortho.json',
+                // url: 'data/IGNF_SCAN1000r_2-0.json',
                 success: function(response) {
                     ////////////////////////////////////////////////////////////
                     // Test mdjs.Metadata Classe
                     ////////////////////////////////////////////////////////////
                     // console.log('response:', response);
                     var metadata = new mdjs.Metadata();
-                    metadata.setJson(response);
+                    // metadata.setJson(response);
+                    // metadata.getJson();
 
-                    // console.log(metadata.getXmlString({
-                    //     beautifier: true
-                    // }, response));
+                    console.log(metadata.toXmlString({
+                        beautifier: true
+                    }, response));
 
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
