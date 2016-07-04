@@ -1,0 +1,8 @@
+*.bat
+history.md
+php/files
+_*
+*.py
+*.pyc
+data
+python

@@ -1,17 +1,29 @@
+
+
+/**
+ * model-xml.js
+ * @file model-xml.js
+ * @description mdjs XML model file
+ * @author Guillaume RYCKELYNCK
+ * @version b15
+ * @license MIT
+ * Copyright (c) 2016 - CIGAL (G. Ryckelynck)
+ */
+
 (function(mdjs, undefined) {
     "use strict";
 
     /**
      * Model of metadata file.
-     * It's used to generate JSON and XML Metadata object.
+     * It's used to generate JSON and XML Metadata object according to ISO 19115 UML schema.
      * Each sub object his named "node" in this definition. Order of nodes is important to generate XML Metadata object.
      * Node properties are:
-     * 	- @property {String}   xpath       - Path to value(s) in XML Metadata file
-     *  - @property {String}   multi    - Element is simple or multiple. Use to store value(s) in JSON Metadata object: true = string (without child) or object (with children) and false = array
-     *  - @property {Object}   children    - List of children of this node to get sub value(s) from XML Metadata file and generate JSON Metdata object
-     *  - @property {Object}   attributes  - List of attributes added to XML node during XML Metdata file generation from JSON Metadata object
-     *  - @property {Boolean}  skip        - If true, skip this node when generating XML Metdata file from JSON Metdata object
-     *  - @property {String}   profile     - Name of profile for this field ('inspire', 'cigal' or 'iso') - Not directly used
+     * @property {String}   xpath       - Path to value(s) in XML Metadata file
+     * @property {String}   multi       - Element is simple or multiple. Use to store value(s) in JSON Metadata object: true = string (without child) or object (with children) and false = array
+     * @property {Object}   children    - List of children of this node to get sub value(s) from XML Metadata file and generate JSON Metdata object
+     * @property {Object}   attributes  - List of attributes added to XML node during XML Metdata file generation from JSON Metadata object
+     * @property {Boolean}  skip        - If true, skip this node when generating XML Metdata file from JSON Metdata object
+     * @property {String}   profile     - Name of profile for this field ('inspire', 'cigal' or 'iso') - Not directly used
      * @type {Object}
      */
     mdjs.model_xml = {};
@@ -140,7 +152,7 @@
                 }
             }
         },
-        onlineResources: {
+        linkages: {
             profile: 'iso',
             multi: true,
             xpath: 'gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:onlineResource',
@@ -247,8 +259,8 @@
         }
     };
 
-    mdjs.model_xml.language = {
-        language: {
+    mdjs.model_xml.languageCode = {
+        languageCode: {
             profile: 'iso',
             multi: false,
             xpath: 'gmd:LanguageCode/@codeListValue',
@@ -396,7 +408,8 @@
             }
         },
         // Identifiers
-        dataIdentifiers: {
+        // GRK - change dataIdentifiers par dataRSIdentifiers
+        dataRsIdentifiers: {
             profile: 'iso',
             multi: true,
             xpath: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier',
@@ -410,6 +423,19 @@
                     profile: 'iso',
                     multi: false,
                     xpath: 'gmd:RS_Identifier/gmd:codeSpace/gco:CharacterString/text()'
+                }
+            }
+        },
+        // GRK - Add dataMdIdentifiers
+        dataMdIdentifiers: {
+            profile: 'iso',
+            multi: true,
+            xpath: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier',
+            children: {
+                code: {
+                    profile: 'iso',
+                    multi: false,
+                    xpath: 'gmd:MD_Identifier/gmd:code/gco:CharacterString/text()'
                 }
             }
         },
@@ -659,10 +685,11 @@
         },
         // Scale
         // Scale denominator
+        // DONE: change path
         dataScaleDenominator: {
             profile: 'iso',
             multi: false,
-            xpath: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:MD_RepresentativeFraction/gmd:denominator/gco:Integer/text()'
+            xpath: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:spatialResolution/gmd:MD_Resolution/gmd:equivalentScale/gmd:MD_RepresentativeFraction/gmd:denominator/gco:Integer/text()'
         },
         // Scale distance
         dataScaleDistance: {
@@ -678,7 +705,7 @@
             profile: 'iso',
             multi: true,
             xpath: '/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:language',
-            children: mdjs.model_xml.language
+            children: mdjs.model_xml.languageCode
         },
         // Data Character Set
         dataCharacterSet: {
@@ -835,7 +862,7 @@
             }
         },
         // DistributionFormats
-        dataDistributionFromats: {
+        dataDistributionFormats: {
             profile: 'iso',
             multi: true,
             xpath: '/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributionFormat',
@@ -876,7 +903,8 @@
                     children: mdjs.model_xml.contact
                 },
                 // distributionOrderProcess: {
-                //     profile: 'iso', multi: true,
+                //     profile: 'iso',
+                //     multi: true,
                 //     xpath: 'gmd:MD_Format/gmd:version/gco:CharacterString/text()',
                 // },
                 distributionOrderProcess: {

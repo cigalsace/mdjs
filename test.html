@@ -22,7 +22,7 @@
     <script src="src/XmlDoc.js"></script>
     <script src="src/Metadata.js"></script> -->
     <!-- <script src="mdjs.js"></script> -->
-    <script src="mdjs.min.js"></script>
+    <script src="mdjs.js"></script>
 
     <script language="javascript" type="text/javascript">
         ////////////////////////////////////////////////////////////////////////////
@@ -183,9 +183,11 @@
         jQuery.noConflict();
         (function(jQuery) {
             jQuery.ajax({
-                // url: 'data/test.xml',
+                 //url: 'data/test.xml',
+                 url: 'data/576ba7d49c9ce.xml',
                 // url: 'data/ortho.xml',
-                url: 'data/IGNF_SCAN1000r_2-0.xml',
+                // url: 'data/IGNF_SCAN1000r_2-0.xml',
+                //url: 'data/test1.xml',
                 // url: 'data/service.xml',
                 success: function(response) {
                     ////////////////////////////////////////////////////////////
@@ -212,7 +214,7 @@
                     console.log('fileIdentifier (relative path):', metadata.get('xml').getNodeValues('gmd:fileIdentifier/gco:CharacterString', root)[0]);
 
                     // console.log(JSON.stringify(metadata.getJson()));
-                    console.log(metadata.toJson());
+                    console.log('toJson: ', metadata.toJson());
 
                     ////////////////////////////////////////////////////////////
                     // Test mdjs.Metadata Classe

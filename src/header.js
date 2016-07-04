@@ -3,9 +3,9 @@
  * @file mdjs.js header
  * @description
  * @author Guillaume RYCKELYNCK
- * @version b11
+ * @version b15
  * @license
- * Copyright (c) 2015 - CIGAL (G. Ryckelynck)
+ * Copyright (c) 2016 - CIGAL (G. Ryckelynck)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

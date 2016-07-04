@@ -1,9 +1,21 @@
-////////////////////////////////////////////////////////////////////////
-// Classe Metadata
-////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * Metadata.js
+ * @file Metadata.js
+ * @description mdjs Metdata class
+ * @author Guillaume RYCKELYNCK
+ * @version b15
+ * @license MIT
+ * Copyright (c) 2016 - CIGAL (G. Ryckelynck)
+ */
 
 (function(mdjs, undefined) {
     "use strict";
+
+    ////////////////////////////////////////////////////////////////////////
+    // Class Metadata
+    ////////////////////////////////////////////////////////////////////////
 
     /**
      * Metadata object class
@@ -42,19 +54,17 @@
     };
 
     /**
-     * Get XML document from JSON property
-     * @param  {Object} json - Objet to set json property if necessary
-     * @return {Object}      - Metadata XML document property
+     * Get XML document of Metadata object
+     * @return {XML document}   - Metadata XML document property
      */
     mdjs.Metadata.prototype.getXml = function() {
         return this.xml;
     };
 
     /**
-     * [function description]
-     * @param  {[type]} config [description]
-     * @param  {[type]} json   [description]
-     * @return {[type]}        [description]
+     * Get XML document of Metadata object as string
+     * @param  {Objet} config   - Configuration object to set 'beautifier' (boolean), 'minify' (boolean), 'version' (string) and 'characterset' (string) parameters (cf. XmlDoc.getXmlString(config))
+     * @return {string}         - XML document as string
      */
     mdjs.Metadata.prototype.getXmlString = function(config) {
         return this.getXml().getXmlString(config);
@@ -72,10 +82,10 @@
     };
 
     /**
-     * [function description]
-     * @param  {[type]} config [description]
-     * @param  {[type]} json   [description]
-     * @return {[type]}        [description]
+     * Get XML document as string from JSON property
+     * @param  {Objet} config   - Configuration object to set 'beautifier' (boolean), 'minify' (boolean), 'version' (string) and 'characterset' (string) parameters (cf. XmlDoc.getXmlString(config))
+     * @param  {Object} json    - Objet to set json property if necessary
+     * @return {string}         - XML document as string
      */
     mdjs.Metadata.prototype.toXmlString = function(config, json) {
         return this.toXml(json)
@@ -83,39 +93,39 @@
     };
 
     /**
-     * [function description]
-     * @param  {[type]} xml [description]
-     * @return {[type]}     [description]
+     * Get json property of Metadata object
+     * @return {Objet}  - Json property of Metadata object
      */
     mdjs.Metadata.prototype.getJson = function() {
         return this.json;
     };
 
     /**
-     * [function description]
-     * @param  {[type]} xml [description]
-     * @return {[type]}     [description]
+     * Get json property of Metadata object from XML
+     * @param  {XML document} xml   - XML document to convert to json
+     * @return {Objet}              - Json object
      */
     mdjs.Metadata.prototype.toJson = function(xml) {
+        // console.log('xml', xml);
         this.xml = xml || this.xml;
         this.json = this._xml2Json(this.xml, mdjs.model_xml.main, this.xml.doc);
         return this.json;
     };
 
     /**
-     * [function description]
-     * @param  {[type]} property [description]
-     * @return {[type]}          [description]
+     * Get a property of Metadata object
+     * @param  {String} property                            - Property name
+     * @return {String, Array, Objet, Boolean, undefined}   - Type depends of property
      */
     mdjs.Metadata.prototype.get = function(property) {
         return this[property] || undefined;
     };
 
     /**
-     * [function description]
-     * @param  {[type]} property [description]
-     * @param  {[type]} value    [description]
-     * @return {[type]}          [description]
+     * Set a property of Metadata obejct
+     * @param  {String} property                                - Property name
+     * @param  {String, Array, Objet, Boolean, undefined} value - Value of property. Type depends of property.    [description]
+     * @return {String, Array, Objet, Boolean, undefined}       - Value of property or undefined.
      */
     mdjs.Metadata.prototype.set = function(property, value) {
         this[property] = value || undefined;
@@ -123,27 +133,27 @@
     };
 
     /**
-     * [function description]
-     * @param  {[type]} node [description]
-     * @return {[type]}      [description]
+     * Get XML values of a node
+     * @param  {XML node} node  - XML node
+     * @return {Array}          - Values
      */
     mdjs.Metadata.prototype.getXmlValues = function(node) {
         return this.xml.getNodeValues(mdjs.model_xml.main[node].xpath);
     };
 
     /**
-     * [function description]
-     * @param  {[type]} node [description]
-     * @return {[type]}      [description]
+     * Get a specific value of json Metadata object
+     * @param  {String} node            - Node name
+     * @return {String, Array, Object}  - Values of json property
      */
     mdjs.Metadata.prototype.getJsonValues = function(node) {
         return this.json[node];
     };
 
     /**
-     * [function description]
-     * @param  {[type]} type [description]
-     * @return {[type]}      [description]
+     * Check if Metadata concerns service or dataset
+     * @param  {String} type    - Specify the type of Metdata (XML or Json) to check
+     * @return {Boolean}        - True if Metadata concerns service
      */
     mdjs.Metadata.prototype._isService = function(type) {
         if (type == 'xml') {
@@ -154,11 +164,11 @@
     };
 
     /**
-     * [function description]
-     * @param  {[type]} doc   [description]
-     * @param  {[type]} model [description]
-     * @param  {[type]} xml   [description]
-     * @return {[type]}       [description]
+     * Get JSON object from Metdata XML
+     * @param  {XML document} doc   - XML root document
+     * @param  {Object} model       - Model to convert XML to JSON
+     * @param  {XML document} xml   - XML document to convert
+     * @return {Object}             - JSON result object
      */
     mdjs.Metadata.prototype._xml2Json = function(doc, model, xml) {
         var json = {};
@@ -175,6 +185,7 @@
                     json[node] = this._xml2Json(doc, model[node].children, elt.snapshotItem(0));
                 } else {
                     // String node without child
+                    // console.log(doc);
                     var nodeValue = doc.getNodeValues(xpath, xml)[0];
                     if (nodeValue) {
                         json[node] = nodeValue;
@@ -213,8 +224,8 @@
 
     /**
      * Separate extents property of sjson object to 3 properties: geographicExtents, temporalExtents and vertical to get more usefull object
-     * @param  {Object} sjson sjson object
-     * @return {Object}       modified sjson object
+     * @param  {Object} json    - JSON object
+     * @return {Object}         - Modified JSON object
      */
     mdjs.Metadata.prototype._separateJsonExtents = function(json) {
         var dataGeographicExtents = [];
@@ -241,11 +252,10 @@
         return json;
     };
 
-    // Hash string to get an id
     /**
-     * [function description]
-     * @param  {[type]} string [description]
-     * @return {[type]}        [description]
+     * Hash string to get an id from string
+     * @param  {string} string  - String to hash
+     * @return {String}         - Hash id of string
      */
     mdjs.Metadata.prototype._getHash = function(string) {
         var hash = 0;
@@ -257,12 +267,12 @@
     };
 
 /**
- * [function description]
- * @param  {[type]} doc    [description]
- * @param  {[type]} model  [description]
- * @param  {[type]} json   [description]
- * @param  {[type]} parent [description]
- * @return {[type]}        [description]
+ * Get XML from JSON Metadata object
+ * @param  {XML document} doc       - XML root document for result
+ * @param  {Object} model           - Model to convert JSON to XML
+ * @param  {Object} json            - JSON object to convert to XML
+ * @param  {XML document} parent    - Parent node in XML document for iterative function
+ * @return {XML document}           - Metdata XML document
  */
     mdjs.Metadata.prototype._json2Xml = function(doc, model, json, parent) {
         for (var node in model) {

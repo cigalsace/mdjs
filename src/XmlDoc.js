@@ -1,9 +1,21 @@
-////////////////////////////////////////////////////////////////////////
-// Classe xmlDoc
-////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * XmlDoc.js
+ * @file XmlDoc.js
+ * @description mdjs XmlDoc class
+ * @author Guillaume RYCKELYNCK
+ * @version b15
+ * @license MIT
+ * Copyright (c) 2016 - CIGAL (G. Ryckelynck)
+ */
 
 (function(mdjs, undefined) {
     "use strict";
+
+    ////////////////////////////////////////////////////////////////////////
+    // Class xmlDoc
+    ////////////////////////////////////////////////////////////////////////
 
     /**
      * @class mdjs.XmlDoc
@@ -30,7 +42,8 @@
             this.root = this.doc.createElementNS(xmlns['xmlns:gmd'], rootElement);
             this.doc.appendChild(this.root);
             // Add default namespace - simple xmlns attribute
-            this.root.setAttribute('xmlns', this.xmlns.gmd);
+            // this.root.setAttribute('xmlns', this.xmlns.gmd);
+            this.root.setAttribute('xmlns', this.xmlns['xmlns:gmd']);
             // Add other namespace - attribute in xmlns namespace
             for (var ns in this.xmlns) {
                 var ns_parts = ns.split(':');
@@ -60,12 +73,12 @@
     };
 
     /**
-     * [function description]
-     * @param  {[type]} parentNode     [description]
-     * @param  {[type]} nodeName       [description]
-     * @param  {[type]} nodeText       [description]
-     * @param  {[type]} nodeAttributes [description]
-     * @return {[type]}                [description]
+     * Add node to parent
+     * @param  {XML node} parentNode        Parent node
+     * @param  {String} nodeName        Name of child node
+     * @param  {String} nodeText        Text of child node content
+     * @param  {Object} nodeAttributes   Node attributes object
+     * @return {XML node}                   Node child
      */
     mdjs.XmlDoc.prototype.addNode = function(parentNode, nodeName, nodeText, nodeAttributes) {
         // Define params
@@ -95,11 +108,11 @@
     };
 
     /**
-     * [function description]
-     * @param  {[type]} path       [description]
-     * @param  {[type]} doc        [description]
-     * @param  {[type]} resultType [description]
-     * @return {[type]}            [description]
+     * Get XML node from xpath
+     * @param  {String} path        - Xpath to node
+     * @param  {XML document} doc   - XML document
+     * @param  {String} resultType  - Type of result (ORDERED_NODE_SNAPSHOT_TYPE, ANY_TYPE or UNORDERED_NODE_ITERATOR_TYPE)
+     * @return {XML node}           - XML node
      */
     mdjs.XmlDoc.prototype.getNodeFromPath = function(path, doc, resultType) {
         var types = {
@@ -119,10 +132,10 @@
     };
 
     /**
-     * [function description]
-     * @param  {[type]} path [description]
-     * @param  {[type]} doc  [description]
-     * @return {[type]}      [description]
+     * Get node value
+     * @param  {String} path        - Xpath to node
+     * @param  {XML document} doc   - XML document
+     * @return {Array}              - Array of String
      */
     mdjs.XmlDoc.prototype.getNodeValues = function(path, doc) {
         var nodes = this.getNodeFromPath(path, doc);
@@ -133,14 +146,14 @@
         return result;
     };
 
-    // If append = true => always add new node, else use existing node (if exists)
+    //
     /**
-     * [function description]
-     * @param  {[type]} doc    [description]
-     * @param  {[type]} path   [description]
-     * @param  {[type]} parent [description]
-     * @param  {[type]} append [description]
-     * @return {[type]}        [description]
+     * Add tree of node elements from path
+     * @param  {XML document} doc   - XML document
+     * @param  {String} path        - Path to create tree of elemet ('/' separator)
+     * @param  {XML node} parent    - Parent node
+     * @param  {Boolean} append     - If true => always add new node, else use existing node (if exists)
+     * @return {XML document}       - XML document
      */
     mdjs.XmlDoc.prototype.addTreeFromPath = function(doc, path, parent, append) {
         append = append || false;
@@ -158,14 +171,13 @@
         return doc;
     };
 
-    // If append = true => always add new node, else use existing node (if exists)
     /**
-     * [function description]
-     * @param  {[type]} doc    [description]
-     * @param  {[type]} path   [description]
-     * @param  {[type]} parent [description]
-     * @param  {[type]} append [description]
-     * @return {[type]}        [description]
+     * Add tree node elements from object
+     * @param  {XML document} doc   - XML document
+     * @param  {Object} path        - Path to create tree of elemet
+     * @param  {XML node} parent    - Parent node
+     * @param  {Boolean} append     - If true => always add new node, else use existing node (if exists)
+     * @return {XML document}       - XML document
      */
     mdjs.XmlDoc.prototype.addTreeFromObj = function(doc, path, parent, append) {
         parent = parent || doc.root;
@@ -185,9 +197,9 @@
     };
 
     /**
-     * [function description]
-     * @param  {[type]} config [description]
-     * @return {[type]}        [description]
+     * Get XML document as string
+     * @param  {Object} config  - Configuration object to set 'beautifier' (boolean), 'minify' (boolean), 'version' (string) and 'characterset' (string) parameters
+     * @return {string}         - XML document as string
      */
     mdjs.XmlDoc.prototype.getXmlString = function(config) {
         //  Define params

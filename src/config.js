@@ -1,3 +1,17 @@
+/**
+ * config.js
+ * @file config.js
+ * @description mdjs config file
+ * @author Guillaume RYCKELYNCK
+ * @version b15
+ * @license MIT
+ * Copyright (c) 2016 - CIGAL (G. Ryckelynck)
+ */
+
+/**
+ * Main application object mdjs
+ * @type {Object}
+ */
 var mdjs = {};
 
 (function(mdjs, undefined) {
@@ -32,11 +46,5 @@ var mdjs = {};
      * @type {String}
      */
     mdjs.root = "gmd:MD_Metadata";
-
-    // /**
-    //  *
-    //  * @type {Object}
-    //  */
-    // mdjs.json = {};
 
 }(window.mdjs = window.mdjs || {}));
